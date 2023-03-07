@@ -1,0 +1,59 @@
+syntax = "proto3";
+package tt.v1;
+
+message Work {
+	uint64 id		= 1;
+	string username	= 2;
+	string project	= 3;
+	int64 ts		= 4;
+	int64 duration	= 5;
+	string descr	= 6;
+}
+
+message AddWorkRequest {
+	Work work = 1;
+}
+message AddWorkResponse {}
+
+message GetWorkRequest {
+	uint64 id = 1;
+}
+message GetWorkResponse {
+	Work work = 1;
+}
+
+message UpdateWorkRequest {
+	Work work = 1;
+}
+message UpdateWorkResponse {}
+
+message DeleteWorkRequest {
+	uint64 id = 1;
+}
+message DeleteWorkResponse {}
+
+message ListWorkRequest {
+	int64 from	= 1;
+	int64 until	= 2;
+}
+message ListWorkResponse {
+	repeated Work work = 1;
+}
+
+message ListWorkForUserRequest {
+	string username	= 1;
+	int64 from		= 2;
+	int64 until		= 3;
+}
+message ListWorkForUserResponse {
+	repeated Work work = 1;
+}
+
+message ListWorkForProjectRequest {
+	string name	= 1;
+	int64 from	= 2;
+	int64 until	= 3;
+}
+message ListWorkForProjectResponse {
+	repeated Work work = 1;
+}

@@ -1,0 +1,39 @@
+syntax = "proto3";
+package tt.v1;
+
+import "google/api/httpbody.proto";
+import "google/api/annotations.proto";
+
+import "tt/v1/user.proto";
+import "tt/v1/project.proto";
+import "tt/v1/work.proto";
+import "tt/v1/snippet.proto";
+
+service TTService {
+	rpc AddUser(AddUserRequest) returns (AddUserResponse);
+	rpc GetUser(GetUserRequest) returns (GetUserResponse);
+	rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+	rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+	rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+
+	rpc AddProject(AddProjectRequest) returns (AddProjectResponse);
+	rpc GetProject(GetProjectRequest) returns (GetProjectResponse);
+	rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse);
+	rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse);
+	rpc ListProjects(ListProjectsRequest) returns (ListProjectsResponse);
+
+	rpc AddWork(AddWorkRequest) returns (AddWorkResponse);
+	rpc GetWork(GetWorkRequest) returns (GetWorkResponse);
+	rpc UpdateWork(UpdateWorkRequest) returns (UpdateWorkResponse);
+	rpc DeleteWork(DeleteWorkRequest) returns (DeleteWorkResponse);
+	rpc ListWork(ListWorkRequest) returns (ListWorkResponse);
+	rpc ListWorkForUser(ListWorkForUserRequest) returns (ListWorkForUserResponse);
+	rpc ListWorkForProject(ListWorkForProjectRequest) returns (ListWorkForProjectResponse);
+
+	rpc AddSnippet(AddSnippetRequest) returns (AddSnippetResponse);
+	rpc GetSnippet(GetSnippetRequest) returns (GetSnippetResponse);
+	rpc UpdateSnippet(UpdateSnippetRequest) returns (UpdateSnippetResponse);
+	rpc DeleteSnippet(DeleteSnippetRequest) returns (DeleteSnippetResponse);
+	rpc ListSnippet(ListSnippetsRequest) returns (ListSnippetsResponse);
+	rpc ListSnippetForUser(ListSnippetsForUserRequest) returns (ListSnippetsForUserResponse);
+}

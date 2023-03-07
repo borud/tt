@@ -1,0 +1,48 @@
+syntax = "proto3";
+package tt.v1;
+
+message Snippet {
+	uint64 id		= 1;
+	string username	= 2;
+	int64 ts		= 3;
+	string contents	= 4;
+}
+
+message AddSnippetRequest {
+	Snippet snippet = 1;
+}
+message AddSnippetResponse {}
+
+message GetSnippetRequest {
+	uint64 id = 1;
+}
+message GetSnippetResponse {
+	Snippet snippet = 1;
+}
+
+message UpdateSnippetRequest {
+	Snippet snippet = 1;
+}
+message UpdateSnippetResponse {}
+
+message DeleteSnippetRequest {
+	uint64 id = 1;
+}
+message DeleteSnippetResponse {}
+
+message ListSnippetsRequest {
+	int64 from	= 1;
+	int64 until	= 2;
+}
+message ListSnippetsResponse {
+	repeated Snippet snippet = 1;
+}
+
+message ListSnippetsForUserRequest {
+	string user = 1;
+	int64 from	= 2;
+	int64 until	= 3;
+}
+message ListSnippetsForUserResponse {
+	repeated Snippet snippet = 1;
+}

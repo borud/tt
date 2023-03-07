@@ -1,0 +1,35 @@
+syntax = "proto3";
+package tt.v1;
+
+message Project {
+	string name  = 1;
+	string descr = 2;
+}
+
+
+message AddProjectRequest {
+	Project project = 1;
+}
+message AddProjectResponse {}
+
+message GetProjectRequest {
+	string name = 1;
+}
+message GetProjectResponse {
+	Project project = 1;
+}
+
+message UpdateProjectRequest {
+	Project project = 1;
+}
+message UpdateProjectResponse {}
+
+message DeleteProjectRequest {
+	string name = 1;
+}
+message DeleteProjectResponse {}
+
+message ListProjectsRequest {}
+message ListProjectsResponse {
+	repeated Project projects = 1;
+}
