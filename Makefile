@@ -31,16 +31,4 @@ publish: gen test
 
 count:
 	@echo "Linecounts excluding generated and third party code"
-	@gocloc --not-match-d='pkg/dx|doc/swagger' .
-
-docker-image: gen test
-	@echo "Cross compiling"
-	@cd cmd/dx && GOOS=linux GOARCH=amd64 go build -o ../../bin/dx-linux --trimpath -tags osusergo,netgo -ldflags="-s -w"
-	@docker build -t dx . && \
-		docker tag dx:latest ghcr.io/lab5e/dx:$(VERSION)
-		docker tag dx:latest ghcr.io/lab5e/dx:latest
-
-docker-push:
-	@echo "Pushing new docker image"
-	@docker push ghcr.io/lab5e/dx:$(VERSION)
-	@docker push ghcr.io/lab5e/dx:latest
+	@gocloc --not-match-d='pkg/tt|doc/swagger' .
