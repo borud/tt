@@ -10,30 +10,129 @@ import "tt/v1/work.proto";
 import "tt/v1/snippet.proto";
 
 service TTService {
-	rpc AddUser(AddUserRequest) returns (AddUserResponse);
-	rpc GetUser(GetUserRequest) returns (GetUserResponse);
-	rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
-	rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
-	rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+	rpc AddUser(AddUserRequest) returns (AddUserResponse) {
+		option (google.api.http) = {
+			post: "/api/v1/users"
+			body: "*"
+		};
+	};
+	rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/users/{username}"
+		};
+	};
+	rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {
+		option (google.api.http) = {
+			put : "/api/v1/users/{user.username}"
+			body: "*"
+		};
+	};
+	rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {
+		option (google.api.http) = {
+			delete : "/api/v1/users/{username}"
+		};
+	};
+	rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/users"
+		};
+	};
 
-	rpc AddProject(AddProjectRequest) returns (AddProjectResponse);
-	rpc GetProject(GetProjectRequest) returns (GetProjectResponse);
-	rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse);
-	rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse);
-	rpc ListProjects(ListProjectsRequest) returns (ListProjectsResponse);
+	rpc AddProject(AddProjectRequest) returns (AddProjectResponse) {
+		option (google.api.http) = {
+			post: "/api/v1/projects"
+			body: "*"
+		};
+	};
+	rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
+		option (google.api.http) = {
+			get: "/api/v1/projects/{name}"
+		};
+	};
+	rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
+		option (google.api.http) = {
+			put : "/api/v1/projects/{project.name}"
+			body: "*"
+		};
+	};
+	rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
+		option (google.api.http) = {
+			delete : "/api/v1/projects/{name}"
+		};
+	};
+	rpc ListProjects(ListProjectsRequest) returns (ListProjectsResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/projects"
+		};
+	};
 
-	rpc AddWork(AddWorkRequest) returns (AddWorkResponse);
-	rpc GetWork(GetWorkRequest) returns (GetWorkResponse);
-	rpc UpdateWork(UpdateWorkRequest) returns (UpdateWorkResponse);
-	rpc DeleteWork(DeleteWorkRequest) returns (DeleteWorkResponse);
-	rpc ListWork(ListWorkRequest) returns (ListWorkResponse);
-	rpc ListWorkForUser(ListWorkForUserRequest) returns (ListWorkForUserResponse);
-	rpc ListWorkForProject(ListWorkForProjectRequest) returns (ListWorkForProjectResponse);
+	rpc AddWork(AddWorkRequest) returns (AddWorkResponse) {
+		option (google.api.http) = {
+			post : "/api/v1/work"
+			body : "*"
+		};
+	};
+	rpc GetWork(GetWorkRequest) returns (GetWorkResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/work/{id}"
+		};
+	};
+	rpc UpdateWork(UpdateWorkRequest) returns (UpdateWorkResponse) {
+		option (google.api.http) = {
+			put : "/api/v1/work/{work.id}"
+			body : "*"
+		};
+	};
+	rpc DeleteWork(DeleteWorkRequest) returns (DeleteWorkResponse) {
+		option (google.api.http) = {
+			delete : "/api/v1/work/{id}"
+		};
+	};
+	rpc ListWork(ListWorkRequest) returns (ListWorkResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/work"
+		};
+	};
+	rpc ListWorkForUser(ListWorkForUserRequest) returns (ListWorkForUserResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/users/{username}/work"
+		};
+	};
+	rpc ListWorkForProject(ListWorkForProjectRequest) returns (ListWorkForProjectResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/projects/{name}/work"
+		};
+	};
 
-	rpc AddSnippet(AddSnippetRequest) returns (AddSnippetResponse);
-	rpc GetSnippet(GetSnippetRequest) returns (GetSnippetResponse);
-	rpc UpdateSnippet(UpdateSnippetRequest) returns (UpdateSnippetResponse);
-	rpc DeleteSnippet(DeleteSnippetRequest) returns (DeleteSnippetResponse);
-	rpc ListSnippet(ListSnippetsRequest) returns (ListSnippetsResponse);
-	rpc ListSnippetForUser(ListSnippetsForUserRequest) returns (ListSnippetsForUserResponse);
+	rpc AddSnippet(AddSnippetRequest) returns (AddSnippetResponse) {
+		option (google.api.http) = {
+			post : "/api/v1/snippets"
+			body : "*"
+		};
+	};
+	rpc GetSnippet(GetSnippetRequest) returns (GetSnippetResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/snippets/{id}"
+		};
+	};
+	rpc UpdateSnippet(UpdateSnippetRequest) returns (UpdateSnippetResponse) {
+		option (google.api.http) = {
+			put : "/api/v1/snippets/{snippet.id}"
+		};
+	};
+	rpc DeleteSnippet(DeleteSnippetRequest) returns (DeleteSnippetResponse) {
+		option (google.api.http) = {
+			delete : "/api/v1/snippets/{id}"
+		};
+	};
+	rpc ListSnippet(ListSnippetsRequest) returns (ListSnippetsResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/snippets"
+		};
+	};
+	rpc ListSnippetForUser(ListSnippetsForUserRequest) returns (ListSnippetsForUserResponse) {
+		option (google.api.http) = {
+			get : "/api/v1/users/{user}/snippets"
+		};
+	};
 }

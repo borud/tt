@@ -20,7 +20,7 @@ gen:
 	@buf generate
 
 clean:
-	@rm -rf pkg/dx
+	@rm -rf pkg/tt
 	@rm -rf doc/swagger
 
 buf-lint:

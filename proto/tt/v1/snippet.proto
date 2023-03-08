@@ -15,6 +15,7 @@ message AddSnippetResponse {}
 
 message GetSnippetRequest {
 	uint64 id = 1;
+	string username = 2;
 }
 message GetSnippetResponse {
 	Snippet snippet = 1;
