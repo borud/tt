@@ -12,6 +12,16 @@ type User struct {
 	Phone    string `json:"phone" db:"phone"`
 }
 
+// Validate user
+func (u *User) Validate() error {
+	return nil
+}
+
+// Remove sensitive elements
+func (u *User) RemoveSensitive() {
+	u.Password = ""
+}
+
 // Proto returns proto representation.
 func (u User) Proto() *ttv1.User {
 	return &ttv1.User{
